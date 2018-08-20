@@ -1,0 +1,22 @@
+AddDefaultCharset UTF-8
+
+DirectoryIndex index.php index.html index.htm
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+Options +FollowSymlinks
+Options -Indexes
+
+#RewriteCond %{HTTP_HOST} !^domain.com$ [NC]
+#RewriteRule (.*) http://domain.com/$1 [L,R=301]
+
+RewriteBase /bionic_uz_bot/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)(/|\.(|jpe?g|png|gif|js|txt|css|xml|html|mp3|ogg))$
+RewriteRule ^(.*[^/])$ $1/ [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php [L]
+</IfModule>

@@ -1,1 +1,1 @@
-# inertuz_bot
+# bts-bot
